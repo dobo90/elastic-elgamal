@@ -45,7 +45,8 @@ impl<G: Group> Drop for SecretKey<G> {
 }
 
 impl<G: Group> SecretKey<G> {
-    pub(crate) fn new(scalar: G::Scalar) -> Self {
+    /// Generates new seceret key from `scalar`.
+    pub fn new(scalar: G::Scalar) -> Self {
         SecretKey(scalar)
     }
 
