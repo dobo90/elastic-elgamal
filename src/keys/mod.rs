@@ -176,7 +176,8 @@ impl<G: Group> PublicKey<G> {
         }
     }
 
-    pub(crate) fn from_element(element: G::Element) -> Self {
+    /// Creates new `PublicKey` instance from `element`.
+    pub fn from_element(element: G::Element) -> Self {
         let mut element_bytes = vec![0_u8; G::ELEMENT_SIZE];
         G::serialize_element(&element, &mut element_bytes);
         PublicKey {
